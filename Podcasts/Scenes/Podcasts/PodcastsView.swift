@@ -13,11 +13,14 @@ struct PodcastsView : View {
     @ObjectBinding var podcastViewModel = PodcastsViewModel()
     
     var body: some View {
-        List(podcastViewModel.podcasts.identified(by: \.id)) { podcast in
-            Text(podcast.title)
-        }.onAppear(perform: {
-            self.podcastViewModel.bestPodcasts()
-        })
+        NavigationView() {
+            List(podcastViewModel.podcasts.identified(by: \.id)) { podcast in
+                NavigationButton(destination: PodcastView(podcast: podcast), label: { PodcastRow(podcast: podcast) })
+                }.onAppear(perform: {
+                    self.podcastViewModel.bestPodcasts()
+                })
+            .navigationBarTitle(Text("Best Podcasts"))
+        }
     }
     
 }

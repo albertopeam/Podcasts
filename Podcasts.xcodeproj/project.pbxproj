@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C307F2DA22ABEFEA001579EA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F2D922ABEFEA001579EA /* HomeView.swift */; };
+		C307F2FC22AC18DA001579EA /* PodcastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F2FB22AC18DA001579EA /* PodcastRow.swift */; };
+		C307F2FF22AC1933001579EA /* Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F2FE22AC1933001579EA /* Previews.swift */; };
+		C307F30222AC1C0E001579EA /* PodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F30122AC1C0E001579EA /* PodcastView.swift */; };
 		C3968F0B22AA416C004CB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0A22AA416C004CB76C /* AppDelegate.swift */; };
 		C3968F0D22AA416C004CB76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0C22AA416C004CB76C /* SceneDelegate.swift */; };
 		C3968F0F22AA416C004CB76C /* PodcastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0E22AA416C004CB76C /* PodcastsView.swift */; };
@@ -32,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C307F2D922ABEFEA001579EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C307F2FB22AC18DA001579EA /* PodcastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRow.swift; sourceTree = "<group>"; };
+		C307F2FE22AC1933001579EA /* Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previews.swift; sourceTree = "<group>"; };
+		C307F30122AC1C0E001579EA /* PodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastView.swift; sourceTree = "<group>"; };
 		C3968F0722AA416C004CB76C /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3968F0A22AA416C004CB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3968F0C22AA416C004CB76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C307F30022AC1BF9001579EA /* Podcast */ = {
+			isa = PBXGroup;
+			children = (
+				C307F30122AC1C0E001579EA /* PodcastView.swift */,
+			);
+			path = Podcast;
+			sourceTree = "<group>";
+		};
 		C3968EFE22AA416C004CB76C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +113,7 @@
 				C3968F1522AA416E004CB76C /* LaunchScreen.storyboard */,
 				C3968F1822AA416E004CB76C /* Info.plist */,
 				C3968F1222AA416E004CB76C /* Preview Content */,
+				C307F2FE22AC1933001579EA /* Previews.swift */,
 			);
 			path = Podcasts;
 			sourceTree = "<group>";
@@ -139,7 +156,9 @@
 		C3FE2D0722AAC63D00B814BE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C307F30022AC1BF9001579EA /* Podcast */,
 				C3FE2D0822AAC64400B814BE /* Podcasts */,
+				C307F2D922ABEFEA001579EA /* HomeView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -149,6 +168,7 @@
 			children = (
 				C3968F2D22AA4A33004CB76C /* PodcastsViewModel.swift */,
 				C3968F0E22AA416C004CB76C /* PodcastsView.swift */,
+				C307F2FB22AC18DA001579EA /* PodcastRow.swift */,
 			);
 			path = Podcasts;
 			sourceTree = "<group>";
@@ -263,8 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C307F2DA22ABEFEA001579EA /* HomeView.swift in Sources */,
 				C3968F0B22AA416C004CB76C /* AppDelegate.swift in Sources */,
 				C3968F0D22AA416C004CB76C /* SceneDelegate.swift in Sources */,
+				C307F2FF22AC1933001579EA /* Previews.swift in Sources */,
+				C307F2FC22AC18DA001579EA /* PodcastRow.swift in Sources */,
+				C307F30222AC1C0E001579EA /* PodcastView.swift in Sources */,
 				C3FE2D0B22AAC6B500B814BE /* Podcasts.swift in Sources */,
 				C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */,
 				C3968F2E22AA4A33004CB76C /* PodcastsViewModel.swift in Sources */,
