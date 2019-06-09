@@ -16,9 +16,10 @@ struct PodcastRow : View {
             Text(podcast.title)
                 .lineLimit(2)
                 .font(.headline)
-            Text(podcast.language).lineLimit(1)
+            Text(podcast.language)
+                .lineLimit(1)
                 .font(.caption)
-        }.padding()
+        }.padding()        
     }
 }
 

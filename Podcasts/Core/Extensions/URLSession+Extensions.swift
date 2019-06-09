@@ -20,21 +20,19 @@ extension URLSession {
         return AnyPublisher { subscriber in
             let task = self.dataTask(with: request) { data, response, error in
                 //TODO: main thread no creo que haga falta...
+                
                 DispatchQueue.main.async {
                     let httpReponse = response as? HTTPURLResponse
                     if let data = data, let httpReponse = httpReponse, 200..<300 ~= httpReponse.statusCode {
                         _ = subscriber.receive(data)
                         subscriber.receive(completion: .finished)
-                    }
-                    else if let httpReponse = httpReponse {
+                    } else if let httpReponse = httpReponse {
                         subscriber.receive(completion: .failure(.request(code: httpReponse.statusCode, error: error)))
-                    }
-                    else {
+                    } else {
                         subscriber.receive(completion: .failure(.unknown))
                     }
                 }
             }
-            
             subscriber.receive(subscription: AnySubscription(task.cancel))
             task.resume()
         }
@@ -43,3 +41,10 @@ extension URLSession {
 }
 
 extension JSONDecoder: TopLevelDecoder {}
+//
+//class MainScheduler: Scheduler {
+//    typealias SchedulerTimeType = SchedulerTimeType.
+//
+//    typealias SchedulerOptions = SchedulerOptions.
+//
+//}

@@ -10,12 +10,23 @@ import SwiftUI
 
 struct PodcastView : View {
     
-    let podcast: Podcast
+    @ObjectBinding var podcastViewModel: PodcastViewModel
+    
+    init(podcast: Podcast) {
+        self.podcastViewModel = PodcastViewModel(podcast: podcast)
+    }
     
     var body: some View {
-        Text(podcast.title)
-            .lineLimit(2)
-            .font(.headline)
+        VStack {
+            Text(podcastViewModel.podcast.title)
+                .lineLimit(2)
+                .font(.headline)
+            List(podcastViewModel.episodes.identified(by: \.id)){ episode in
+                Text(episode.title)
+            }
+        }.onAppear(perform: {
+            self.podcastViewModel.loadEpisodes()
+        })
     }
 }
 
