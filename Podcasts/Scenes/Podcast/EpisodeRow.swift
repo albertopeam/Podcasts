@@ -1,5 +1,5 @@
 //
-//  EpisodesView.swift
+//  EpisodeRow.swift
 //  Podcasts
 //
 //  Created by Alberto on 09/06/2019.
@@ -8,16 +8,20 @@
 
 import SwiftUI
 
-struct EpisodesView : View {
+struct EpisodeRow : View {
+    
+    let episode: Episode
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        Text(episode.title)
     }
+    
 }
 
 #if DEBUG
-struct EpisodesView_Previews : PreviewProvider {
+struct EpisodeRow_Previews : PreviewProvider {
     static var previews: some View {
-        EpisodesView()
+        EpisodeRow(episode: episodes.first!)
     }
 }
 #endif

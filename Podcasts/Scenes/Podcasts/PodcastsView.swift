@@ -15,9 +15,11 @@ struct PodcastsView : View {
     var body: some View {
         NavigationView() {
             List(podcastViewModel.podcasts.identified(by: \.id)) { podcast in
-                NavigationButton(destination: PodcastView(podcast: podcast), label: { PodcastRow(podcast: podcast) })
+                NavigationButton(destination: PodcastView(podcast: podcast), label: {
+                    PodcastRow(podcast: podcast)
+                    })
                 }
-            .navigationBarTitle(Text("Best Podcasts"))
+                .navigationBarTitle(Text("Best Podcasts"), displayMode: NavigationBarItem.TitleDisplayMode.inline)
             }.onAppear(perform: {
                 self.podcastViewModel.bestPodcasts()
             })

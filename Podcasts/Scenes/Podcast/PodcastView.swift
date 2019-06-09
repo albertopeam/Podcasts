@@ -22,7 +22,9 @@ struct PodcastView : View {
                 .lineLimit(2)
                 .font(.headline)
             List(podcastViewModel.episodes.identified(by: \.id)){ episode in
-                Text(episode.title)
+                NavigationButton(destination: EpisodeView()) {
+                    Text(episode.title)
+                }
             }
         }.onAppear(perform: {
             self.podcastViewModel.loadEpisodes()
