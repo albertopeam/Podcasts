@@ -115,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C3968F1022AA416E004CB76C /* Assets.xcassets */,
+				C3968F1522AA416E004CB76C /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -145,10 +146,8 @@
 				C3968F2C22AA4A25004CB76C /* Core */,
 				C3968F0A22AA416C004CB76C /* AppDelegate.swift */,
 				C3968F0C22AA416C004CB76C /* SceneDelegate.swift */,
-				C3968F1522AA416E004CB76C /* LaunchScreen.storyboard */,
 				C3968F1822AA416E004CB76C /* Info.plist */,
 				C3968F1222AA416E004CB76C /* Preview Content */,
-				C307F2FE22AC1933001579EA /* Previews.swift */,
 			);
 			path = Podcasts;
 			sourceTree = "<group>";
@@ -156,6 +155,7 @@
 		C3968F1222AA416E004CB76C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				C307F2FE22AC1933001579EA /* Previews.swift */,
 				C3968F1322AA416E004CB76C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
