@@ -14,6 +14,8 @@ struct EpisodeRow : View {
     
     var body: some View {
         Text(episode.title)
+            .font(.headline)
+            .lineLimit(nil)
     }
     
 }

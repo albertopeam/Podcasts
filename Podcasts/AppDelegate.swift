@@ -6,6 +6,9 @@
 //  Copyright © 2019 com.github.albertopeam. All rights reserved.
 //
 
+//TODO: hacer lo de URLSession, refresh
+//crear repo y subir. meter en algun lado la key listen-api
+//TODO: hacer player
 import UIKit
 
 @UIApplicationMain

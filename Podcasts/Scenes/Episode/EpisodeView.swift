@@ -9,15 +9,18 @@
 import SwiftUI
 
 struct EpisodeView : View {
+    
+    let episode: Episode
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        Text(episode.title)
     }
 }
 
 #if DEBUG
 struct EpisodeView_Previews : PreviewProvider {
     static var previews: some View {
-        EpisodeView()
+        EpisodeView(episode: episodes.first!)
     }
 }
 #endif
