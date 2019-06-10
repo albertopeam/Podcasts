@@ -10,12 +10,18 @@ import SwiftUI
 
 struct PodcastHeaderView : View {
     
+    @ObjectBinding var kf: KingfisherWrapper
     let podcast: Podcast
+    
+    init(kf: KingfisherWrapper = KingfisherWrapper.shared, podcast: Podcast) {
+        self.kf = kf
+        self.podcast = podcast
+    }
     
     var body: some View {
         HStack {
             VStack {
-                Image("placeholder")
+                Image(uiImage: kf.image(for: podcast.thumbnail))
                     .frame(width: 150, height: 150, alignment: .center)
                     .aspectRatio(contentMode: ContentMode.fit)
                     .clipShape(Circle())
@@ -27,7 +33,8 @@ struct PodcastHeaderView : View {
                     .font(.caption)
                     .foregroundColor(Color.red)
             }
-            VStack {
+            Spacer().frame(maxWidth: 10)
+            VStack(alignment: .leading) {
                 Text(podcast.title)
                     .lineLimit(nil)
                     .font(.headline)
@@ -36,7 +43,9 @@ struct PodcastHeaderView : View {
                     .lineLimit(nil)
                     .font(.caption)
             }
-            }.padding([.top, .leading, .trailing])
+            }.padding([.top, .leading, .trailing]).onAppear {
+                self.kf.load(url: self.podcast.thumbnail)
+        }
     }
     
 }

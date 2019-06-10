@@ -12,6 +12,7 @@ struct PodcastView : View {
     
     @ObjectBinding var podcastViewModel: PodcastViewModel
     
+    //TODO: como gestionar esta inyeccion????, con un var tal vez????
     init(podcast: Podcast) {
         self.podcastViewModel = PodcastViewModel(podcast: podcast)
     }

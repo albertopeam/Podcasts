@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct PodcastsView : View {
+        
+    @ObjectBinding var podcastViewModel: PodcastsViewModel
     
-    @ObjectBinding var podcastViewModel = PodcastsViewModel()
+    init(podcastViewModel: PodcastsViewModel = PodcastsViewModel()) {
+        self.podcastViewModel = podcastViewModel
+    }
     
     var body: some View {
         NavigationView() {

@@ -13,9 +13,11 @@ struct EpisodeRow : View {
     let episode: Episode
     
     var body: some View {
-        Text(episode.title)
-            .font(.headline)
-            .lineLimit(nil)
+        HStack {
+            Text(episode.title)
+                .font(.headline)
+                .lineLimit(nil)
+        }
     }
     
 }
