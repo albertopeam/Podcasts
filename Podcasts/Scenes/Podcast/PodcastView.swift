@@ -17,42 +17,17 @@ struct PodcastView : View {
     }
     
     var body: some View {
-        VStack {
-            //TODO: move to header and insert inside list
-            HStack {
-                VStack {
-                    Image("placeholder")
-                        .frame(width: 150, height: 150, alignment: .center)
-                        .aspectRatio(contentMode: ContentMode.fit)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                        .shadow(radius: 4)
-                    Text(podcastViewModel.podcast.language)
-                        .frame(alignment: .trailing)
-                        .lineLimit(1)
-                        .font(.caption)
-                        .foregroundColor(Color.red)
-                }
-                VStack {
-                    Text(podcastViewModel.podcast.title)
-                        .lineLimit(2)
-                        .font(.headline)
-                    Text(podcastViewModel.podcast.description)
-                        .lineLimit(10)
-                        .font(.caption)
-                }
-                Spacer()
-            }.padding()
-            List(podcastViewModel.episodes.identified(by: \.id)){ episode in
-                NavigationButton(destination: EpisodeView()) {
-                    //TODO: mover a row
-                    //TODO: hacer player
-                    Text(episode.title)
+        List {
+            PodcastHeaderView(podcast: podcastViewModel.podcast)
+            ForEach(podcastViewModel.episodes.identified(by: \.id)){ episode in
+                NavigationButton(destination: EpisodeView(episode: episode)) {                    
+                    EpisodeRow(episode: episode)
                 }
             }
-        }.onAppear(perform: {
-            self.podcastViewModel.loadEpisodes()
-        })
+            .navigationBarTitle(Text(podcastViewModel.podcast.title))
+            }.onAppear(perform: {
+                self.podcastViewModel.loadEpisodes()
+            })
     }
 }
 
