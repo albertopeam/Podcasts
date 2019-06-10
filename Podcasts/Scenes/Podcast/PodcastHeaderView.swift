@@ -10,18 +10,19 @@ import SwiftUI
 
 struct PodcastHeaderView : View {
     
-    @ObjectBinding var kf: KingfisherWrapper
+    @ObjectBinding var imageLoader: ImageLoader
     let podcast: Podcast
     
-    init(kf: KingfisherWrapper = KingfisherWrapper.shared, podcast: Podcast) {
-        self.kf = kf
+    init(imageLoader: ImageLoader = ImageLoader(),
+         podcast: Podcast) {
+        self.imageLoader = imageLoader
         self.podcast = podcast
     }
     
     var body: some View {
         HStack {
             VStack {
-                Image(uiImage: kf.image(for: podcast.thumbnail))
+                Image(uiImage: imageLoader.image(for: podcast.thumbnail))
                     .frame(width: 150, height: 150, alignment: .center)
                     .aspectRatio(contentMode: ContentMode.fit)
                     .clipShape(Circle())
@@ -44,7 +45,7 @@ struct PodcastHeaderView : View {
                     .font(.caption)
             }
             }.padding([.top, .leading, .trailing]).onAppear {
-                self.kf.load(url: self.podcast.thumbnail)
+                self.imageLoader.load(url: self.podcast.thumbnail)
         }
     }
     

@@ -9,6 +9,7 @@
 //TODO: hacer lo de URLSession, refresh
 //crear repo y subir. meter en algun lado la key listen-api
 //TODO: hacer player
+//TODO: loading... spinner
 import UIKit
 
 @UIApplicationMain

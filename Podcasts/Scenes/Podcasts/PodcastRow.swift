@@ -10,17 +10,17 @@ import SwiftUI
 
 struct PodcastRow : View {
     
-    @ObjectBinding var imageLoader: KingfisherWrapper
+    @ObjectBinding var imageLoader: ImageLoader
     let podcast: Podcast
     
-    init(imageLoader: KingfisherWrapper = KingfisherWrapper.shared,
+    init(imageLoader: ImageLoader = ImageLoader(),
          podcast: Podcast) {
         self.imageLoader = imageLoader
         self.podcast = podcast
     }
     
     var body: some View {
-        HStack {
+        return HStack {
             Image(uiImage: self.imageLoader.image(for: self.podcast.thumbnail))
                 .frame(width: 64, height: 64, alignment: .center)
                 .aspectRatio(contentMode: ContentMode.fit)

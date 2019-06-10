@@ -16,6 +16,7 @@
 		C307F30D22AD42CF001579EA /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F30C22AD42CF001579EA /* PodcastViewModel.swift */; };
 		C307F30F22AD5E89001579EA /* EpisodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307F30E22AD5E89001579EA /* EpisodeRow.swift */; };
 		C3870BB822AEAAF900EC3FEF /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3870BB722AEAAF900EC3FEF /* UIImage+Color.swift */; };
+		C3870BBA22AEB6D900EC3FEF /* spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3870BB922AEB6D900EC3FEF /* spinner.gif */; };
 		C3968F0B22AA416C004CB76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0A22AA416C004CB76C /* AppDelegate.swift */; };
 		C3968F0D22AA416C004CB76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0C22AA416C004CB76C /* SceneDelegate.swift */; };
 		C3968F0F22AA416C004CB76C /* PodcastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F0E22AA416C004CB76C /* PodcastsView.swift */; };
@@ -24,8 +25,9 @@
 		C3968F1722AA416E004CB76C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3968F1522AA416E004CB76C /* LaunchScreen.storyboard */; };
 		C3968F2222AA416E004CB76C /* PodcastsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F2122AA416E004CB76C /* PodcastsTests.swift */; };
 		C3968F2E22AA4A33004CB76C /* PodcastsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3968F2D22AA4A33004CB76C /* PodcastsViewModel.swift */; };
+		C3A2BE6522AEC975003FFB3A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A2BE6422AEC975003FFB3A /* ImageLoader.swift */; };
 		C3C2441822AE84440021050F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D56D0422AE81C600B0A948 /* Kingfisher.framework */; };
-		C3C2441C22AE86820021050F /* KingfisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2441B22AE86820021050F /* KingfisherWrapper.swift */; };
+		C3C2441C22AE86820021050F /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2441B22AE86820021050F /* ImagesLoader.swift */; };
 		C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D56D0122AE7C7000B0A948 /* PodcastHeaderView.swift */; };
 		C3FE2D0122AAACF300B814BE /* AnySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0022AAACF300B814BE /* AnySubscription.swift */; };
 		C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */; };
@@ -53,6 +55,7 @@
 		C307F30C22AD42CF001579EA /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
 		C307F30E22AD5E89001579EA /* EpisodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRow.swift; sourceTree = "<group>"; };
 		C3870BB722AEAAF900EC3FEF /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		C3870BB922AEB6D900EC3FEF /* spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinner.gif; sourceTree = "<group>"; };
 		C3968F0722AA416C004CB76C /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3968F0A22AA416C004CB76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3968F0C22AA416C004CB76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +68,8 @@
 		C3968F2122AA416E004CB76C /* PodcastsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsTests.swift; sourceTree = "<group>"; };
 		C3968F2322AA416E004CB76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3968F2D22AA4A33004CB76C /* PodcastsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsViewModel.swift; sourceTree = "<group>"; };
-		C3C2441B22AE86820021050F /* KingfisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherWrapper.swift; sourceTree = "<group>"; };
+		C3A2BE6422AEC975003FFB3A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		C3C2441B22AE86820021050F /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
 		C3D56D0122AE7C7000B0A948 /* PodcastHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastHeaderView.swift; sourceTree = "<group>"; };
 		C3D56D0422AE81C600B0A948 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		C3FE2D0022AAACF300B814BE /* AnySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySubscription.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		C347ED1322AD8A4C007837A1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C3870BB922AEB6D900EC3FEF /* spinner.gif */,
 				C3968F1022AA416E004CB76C /* Assets.xcassets */,
 				C3968F1522AA416E004CB76C /* LaunchScreen.storyboard */,
 			);
@@ -195,8 +200,9 @@
 		C3C2441D22AE868D0021050F /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				C3C2441B22AE86820021050F /* KingfisherWrapper.swift */,
+				C3C2441B22AE86820021050F /* ImagesLoader.swift */,
 				C3870BB722AEAAF900EC3FEF /* UIImage+Color.swift */,
+				C3A2BE6422AEC975003FFB3A /* ImageLoader.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			files = (
 				C3968F1722AA416E004CB76C /* LaunchScreen.storyboard in Resources */,
 				C3968F1422AA416E004CB76C /* Preview Assets.xcassets in Resources */,
+				C3870BBA22AEB6D900EC3FEF /* spinner.gif in Resources */,
 				C3968F1122AA416E004CB76C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,11 +381,12 @@
 			files = (
 				C307F2DA22ABEFEA001579EA /* HomeView.swift in Sources */,
 				C3968F0B22AA416C004CB76C /* AppDelegate.swift in Sources */,
+				C3A2BE6522AEC975003FFB3A /* ImageLoader.swift in Sources */,
 				C3968F0D22AA416C004CB76C /* SceneDelegate.swift in Sources */,
 				C307F2FF22AC1933001579EA /* Previews.swift in Sources */,
 				C307F30B22AD01A1001579EA /* EpisodeView.swift in Sources */,
 				C3870BB822AEAAF900EC3FEF /* UIImage+Color.swift in Sources */,
-				C3C2441C22AE86820021050F /* KingfisherWrapper.swift in Sources */,
+				C3C2441C22AE86820021050F /* ImagesLoader.swift in Sources */,
 				C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */,
 				C307F2FC22AC18DA001579EA /* PodcastRow.swift in Sources */,
 				C307F30222AC1C0E001579EA /* PodcastView.swift in Sources */,

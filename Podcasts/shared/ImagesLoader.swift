@@ -6,18 +6,14 @@
 //  Copyright © 2019 com.github.albertopeam. All rights reserved.
 //
 
-//import UIKit.UIImage
-//import typealias Kingfisher.Image
-//import Kingfisher.Image as KFImage
 import UIKit.UIImage
 import SwiftUI
 import Combine
 import class Kingfisher.ImageDownloader
 
-class KingfisherWrapper: BindableObject {
+class ImagesLoader: BindableObject {
     
-    static let shared: KingfisherWrapper = KingfisherWrapper()
-    var didChange = PassthroughSubject<KingfisherWrapper, Never>()
+    var didChange = PassthroughSubject<ImagesLoader, Never>()
     private(set) var images = [URL: UIImage]() {
         didSet {
             didChange.send(self)
@@ -36,7 +32,6 @@ class KingfisherWrapper: BindableObject {
         downloader.downloadImage(with: url, options: nil, progressBlock: nil) { (result) in
             switch result {
             case .success(let image):
-                //TODO: va a ser mucho refrescar la vista cada vez que una acabe...
                 self.images[url] = image.image
             case .failure(_):
                 break
