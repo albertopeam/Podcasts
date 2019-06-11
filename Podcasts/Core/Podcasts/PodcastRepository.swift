@@ -52,8 +52,8 @@ class PodcastRepository {
                                     language: $0.language,
                                     country: $0.country,
                                     rss: URL(string: $0.rss),
-                                    latestPubDateMs: Date(timeIntervalSince1970: TimeInterval($0.latestPubDateMs)),
-                                    earliestPubDateMs: Date(timeIntervalSince1970: TimeInterval($0.earliestPubDateMs)))}) })
+                                    latestPubDateMs: Date(timeIntervalSince1970: $0.latestPubDateMs.intervalFromMiliseconds),
+                                    earliestPubDateMs: Date(timeIntervalSince1970: $0.earliestPubDateMs.intervalFromMiliseconds))}) })
             .print()
             .share()
             .eraseToAnyPublisher()
@@ -72,7 +72,7 @@ class PodcastRepository {
             .map({ $0.map({ Episode(id: $0.id,
                                     title: $0.title,
                                     description: $0.description,
-                                    pubDate: Date(timeIntervalSince1970: TimeInterval($0.pubDateMs)),
+                                    pubDate: Date(timeIntervalSince1970: $0.pubDateMs.intervalFromMiliseconds),
                                     audio: URL(string: $0.audio),
                                     audioLenght: $0.audioLengthSec,
                                     image: URL(string: $0.image),

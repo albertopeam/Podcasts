@@ -13,10 +13,12 @@ struct EpisodeRow : View {
     let episode: Episode
     
     var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             Text(episode.title)
-                .font(.headline)
-                .lineLimit(nil)
+                .font(.title)
+                .lineLimit(2)
+            Text(episode.pubDate.formatMedium)
+                .font(.caption)
         }
     }
     

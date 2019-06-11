@@ -13,7 +13,7 @@ struct EpisodeView : View {
     let episode: Episode
     
     var body: some View {
-        Text(episode.title)
+        Text(episode.title).font(.headline).color(.red).navigationBarTitle(Text(episode.title))
     }
 }
 
