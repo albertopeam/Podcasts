@@ -15,7 +15,7 @@ struct EpisodeRow : View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(episode.title)
-                .font(.title)
+                .font(.body)
                 .lineLimit(2)
             Text(episode.pubDate.formatMedium)
                 .font(.caption)

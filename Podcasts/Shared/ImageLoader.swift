@@ -56,7 +56,8 @@ class ImageLoader: BindableObject {
     private func load(url: URL) {
         let key = url.absoluteString
         if cache.isCached(forKey: key) {
-            cache.retrieveImage(forKey: key) { (result) in
+            cache.retrieveImage(forKey: key) { [weak self] (result) in
+                guard let self = self else { return }
                 switch result {
                 case .success(let value):
                     self.image = value.image
@@ -65,7 +66,8 @@ class ImageLoader: BindableObject {
                 }
             }
         } else {
-            downloader.downloadImage(with: url, options: nil, progressBlock: nil) { (result) in
+            downloader.downloadImage(with: url, options: nil, progressBlock: nil) { [weak self] (result) in
+                guard let self = self else { return }
                 switch result {
                 case .success(let value):
                     self.cache.storeToDisk(value.originalData, forKey: url.absoluteString)

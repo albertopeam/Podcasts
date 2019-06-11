@@ -21,8 +21,6 @@ struct HomeView : View {
                 .font(.title)
                 .tabItemLabel(Text("Search"))
                 .tag(1)
-//            Image(systemName: "livephoto")
-//            .tag(2)
         }
     }
 }
