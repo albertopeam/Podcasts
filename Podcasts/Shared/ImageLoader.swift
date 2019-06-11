@@ -21,15 +21,21 @@ class ImageLoader: BindableObject {
     private let cache: ImageCache
     private var image: UIImage? {
         didSet {
-            didChange.send(self)
+            dispatchqueue.async { [weak self] in
+                guard let self = self else { return }
+                self.didChange.send(self)
+            }
         }
     }
     private var task: DownloadTask?
+    private let dispatchqueue: DispatchQueue
     
     init(downloader: ImageDownloader = KingfisherManager.shared.downloader,
-         cache: ImageCache = KingfisherManager.shared.cache) {
+         cache: ImageCache = KingfisherManager.shared.cache,
+         dispatchqueue: DispatchQueue = DispatchQueue.main) {
         self.downloader = downloader
         self.cache = cache
+        self.dispatchqueue = dispatchqueue
     }
     
     deinit {
