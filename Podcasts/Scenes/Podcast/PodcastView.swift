@@ -11,22 +11,29 @@ import SwiftUI
 struct PodcastView : View {
     
     @ObjectBinding var podcastViewModel: PodcastViewModel
+    @ObjectBinding var imageLoader: ImageLoader
     
     //TODO: como gestionar esta inyeccion????, con un var tal vez????
-    init(podcast: Podcast) {
+    init(podcast: Podcast, imageLoader: ImageLoader = ImageLoader()) {
         self.podcastViewModel = PodcastViewModel(podcast: podcast)
+        self.imageLoader = imageLoader
     }
     
     var body: some View {
         List {
-            PodcastHeaderView(podcast: podcastViewModel.podcast)
-            ForEach(podcastViewModel.episodes.identified(by: \.id)){ episode in
-                NavigationButton(destination: EpisodeView(episode: episode)) {                    
-                    EpisodeRow(episode: episode)
+            PodcastHeaderView(podcast: podcastViewModel.podcast, imageLoader: imageLoader)
+            if podcastViewModel.episodes.isEmpty {
+                Spinner()
+            } else {
+                ForEach(podcastViewModel.episodes.identified(by: \.id)) { episode in
+                    NavigationButton(destination: EpisodeView(episode: episode)) {
+                        EpisodeRow(episode: episode)
+                    }
                 }
             }
+            }
             .navigationBarTitle(Text(podcastViewModel.podcast.title))
-            }.onAppear(perform: {
+            .onAppear(perform: {
                 self.podcastViewModel.loadEpisodes()
             })
     }

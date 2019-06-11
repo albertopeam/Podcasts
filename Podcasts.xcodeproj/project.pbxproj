@@ -29,6 +29,7 @@
 		C3C2441822AE84440021050F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D56D0422AE81C600B0A948 /* Kingfisher.framework */; };
 		C3C2441C22AE86820021050F /* ImagesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2441B22AE86820021050F /* ImagesLoader.swift */; };
 		C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D56D0122AE7C7000B0A948 /* PodcastHeaderView.swift */; };
+		C3F51E7A22AF8A8C00279F4C /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F51E7922AF8A8C00279F4C /* Spinner.swift */; };
 		C3FE2D0122AAACF300B814BE /* AnySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0022AAACF300B814BE /* AnySubscription.swift */; };
 		C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */; };
 		C3FE2D0522AAC40600B814BE /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */; };
@@ -72,6 +73,7 @@
 		C3C2441B22AE86820021050F /* ImagesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesLoader.swift; sourceTree = "<group>"; };
 		C3D56D0122AE7C7000B0A948 /* PodcastHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastHeaderView.swift; sourceTree = "<group>"; };
 		C3D56D0422AE81C600B0A948 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		C3F51E7922AF8A8C00279F4C /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		C3FE2D0022AAACF300B814BE /* AnySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySubscription.swift; sourceTree = "<group>"; };
 		C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
@@ -157,7 +159,7 @@
 		C3968F0922AA416C004CB76C /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
-				C3C2441D22AE868D0021050F /* shared */,
+				C3C2441D22AE868D0021050F /* Shared */,
 				C347ED1322AD8A4C007837A1 /* Assets */,
 				C3FE2D0722AAC63D00B814BE /* Scenes */,
 				C3968F2C22AA4A25004CB76C /* Core */,
@@ -197,14 +199,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		C3C2441D22AE868D0021050F /* shared */ = {
+		C3C2441D22AE868D0021050F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				C3C2441B22AE86820021050F /* ImagesLoader.swift */,
 				C3870BB722AEAAF900EC3FEF /* UIImage+Color.swift */,
 				C3A2BE6422AEC975003FFB3A /* ImageLoader.swift */,
 			);
-			path = shared;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		C3D56D0322AE81C600B0A948 /* Frameworks */ = {
@@ -213,6 +215,14 @@
 				C3D56D0422AE81C600B0A948 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3F51E7822AF8A6700279F4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3F51E7922AF8A8C00279F4C /* Spinner.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C3FE2D0622AAC60900B814BE /* Extensions */ = {
@@ -226,6 +236,7 @@
 		C3FE2D0722AAC63D00B814BE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C3F51E7822AF8A6700279F4C /* Views */,
 				C307F30922AD0194001579EA /* Episode */,
 				C307F30022AC1BF9001579EA /* Podcast */,
 				C3FE2D0822AAC64400B814BE /* Podcasts */,
@@ -389,6 +400,7 @@
 				C3C2441C22AE86820021050F /* ImagesLoader.swift in Sources */,
 				C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */,
 				C307F2FC22AC18DA001579EA /* PodcastRow.swift in Sources */,
+				C3F51E7A22AF8A8C00279F4C /* Spinner.swift in Sources */,
 				C307F30222AC1C0E001579EA /* PodcastView.swift in Sources */,
 				C3FE2D0B22AAC6B500B814BE /* Podcast.swift in Sources */,
 				C307F30522ACFF4B001579EA /* Episode.swift in Sources */,
