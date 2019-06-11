@@ -33,8 +33,6 @@ struct PodcastRow : View {
                     .lineLimit(1)
                     .font(.caption)
             }
-        }.onAppear {
-            self.imageLoader.load(url: self.podcast.thumbnail)
         }
     }
 }

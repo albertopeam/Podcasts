@@ -41,10 +41,3 @@ extension URLSession {
 }
 
 extension JSONDecoder: TopLevelDecoder {}
-//
-//class MainScheduler: Scheduler {
-//    typealias SchedulerTimeType = SchedulerTimeType.
-//
-//    typealias SchedulerOptions = SchedulerOptions.
-//
-//}

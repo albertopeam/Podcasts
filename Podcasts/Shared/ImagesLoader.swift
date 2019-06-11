@@ -11,6 +11,7 @@ import SwiftUI
 import Combine
 import class Kingfisher.ImageDownloader
 
+//TODO: not loading images from cache, check the another cache...
 class ImagesLoader: BindableObject {
     
     var didChange = PassthroughSubject<ImagesLoader, Never>()

@@ -46,9 +46,6 @@ struct PodcastHeaderView : View {
             }
             }
             .padding([.top])
-            .onAppear {
-                self.imageLoader.load(url: self.podcast.thumbnail)
-        }
     }
     
 }

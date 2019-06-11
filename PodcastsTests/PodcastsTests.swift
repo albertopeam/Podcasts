@@ -11,27 +11,27 @@ import XCTest
 
 class PodcastsTests: XCTestCase {
     
-    private var sut: Podcasts!
-    private var publisher: PodcastPublisher!
-
-    override func setUp() {
-        super.setUp()
-        sut = Podcasts()
-    }
-
-    override func tearDown() {
-        sut = nil
-        super.tearDown()
-    }
-
-    func test_() {
-        let exp = XCTestExpectation()
-        publisher = PodcastPublisher()
-        publisher.passhtrough.assign???
-        publisher.passhtrough.receive(subscriber: self).sink { (podcasts) in
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 10)
-    }
+//    private var sut: Podcasts!
+//    private var publisher: PodcastPublisher!
+//
+//    override func setUp() {
+//        super.setUp()
+//        sut = Podcasts()
+//    }
+//
+//    override func tearDown() {
+//        sut = nil
+//        super.tearDown()
+//    }
+//
+//    func test_() {
+//        let exp = XCTestExpectation()
+//        publisher = PodcastPublisher()
+//        publisher.passhtrough.assign???
+//        publisher.passhtrough.receive(subscriber: self).sink { (podcasts) in
+//            exp.fulfill()
+//        }
+//        wait(for: [exp], timeout: 10)
+//    }
 
 }

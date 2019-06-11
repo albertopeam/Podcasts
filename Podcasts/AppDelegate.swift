@@ -10,6 +10,14 @@
 //crear repo y subir. meter en algun lado la key listen-api
 //TODO: hacer player
 //TODO: loading... spinner
+//enum PodcastState {
+//    case loading
+//    case data(podcast: [Podcast])
+//    case error(error: Error)
+//}
+//private(set) var state = PodcastState.loading {
+//    didSet { didChange.send(self) }
+//}
 import UIKit
 
 @UIApplicationMain
