@@ -31,7 +31,9 @@
 		C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D56D0122AE7C7000B0A948 /* PodcastHeaderView.swift */; };
 		C3E1087822AFE15100F05D61 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1087722AFE15100F05D61 /* Date+Formatter.swift */; };
 		C3E1087A22AFE24C00F05D61 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1087922AFE24C00F05D61 /* Int+Timestamp.swift */; };
+		C3E1087D22AFFE0C00F05D61 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1087C22AFFE0C00F05D61 /* Player.swift */; };
 		C3F51E7A22AF8A8C00279F4C /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F51E7922AF8A8C00279F4C /* Spinner.swift */; };
+		C3F5D70122B04FDC00C25132 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5D70022B04FDC00C25132 /* PlayerView.swift */; };
 		C3FE2D0122AAACF300B814BE /* AnySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0022AAACF300B814BE /* AnySubscription.swift */; };
 		C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */; };
 		C3FE2D0522AAC40600B814BE /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */; };
@@ -77,7 +79,9 @@
 		C3D56D0422AE81C600B0A948 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		C3E1087722AFE15100F05D61 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		C3E1087922AFE24C00F05D61 /* Int+Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Timestamp.swift"; sourceTree = "<group>"; };
+		C3E1087C22AFFE0C00F05D61 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C3F51E7922AF8A8C00279F4C /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		C3F5D70022B04FDC00C25132 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C3FE2D0022AAACF300B814BE /* AnySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySubscription.swift; sourceTree = "<group>"; };
 		C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		C3968F2C22AA4A25004CB76C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C3E1087B22AFFDFE00F05D61 /* Player */,
 				C3FE2D0922AAC68D00B814BE /* Podcasts */,
 				C3FE2D0622AAC60900B814BE /* Extensions */,
 				C3FE2D0022AAACF300B814BE /* AnySubscription.swift */,
@@ -223,12 +228,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C3E1087B22AFFDFE00F05D61 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				C3E1087C22AFFE0C00F05D61 /* Player.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		C3F51E7822AF8A6700279F4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C3F51E7922AF8A8C00279F4C /* Spinner.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C3F5D6FF22B04FC500C25132 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				C3F5D70022B04FDC00C25132 /* PlayerView.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		C3FE2D0622AAC60900B814BE /* Extensions */ = {
@@ -242,6 +263,7 @@
 		C3FE2D0722AAC63D00B814BE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C3F5D6FF22B04FC500C25132 /* Player */,
 				C3F51E7822AF8A6700279F4C /* Views */,
 				C307F30922AD0194001579EA /* Episode */,
 				C307F30022AC1BF9001579EA /* Podcast */,
@@ -400,9 +422,11 @@
 				C3968F0B22AA416C004CB76C /* AppDelegate.swift in Sources */,
 				C3A2BE6522AEC975003FFB3A /* ImageLoader.swift in Sources */,
 				C3968F0D22AA416C004CB76C /* SceneDelegate.swift in Sources */,
+				C3E1087D22AFFE0C00F05D61 /* Player.swift in Sources */,
 				C307F2FF22AC1933001579EA /* Previews.swift in Sources */,
 				C307F30B22AD01A1001579EA /* EpisodeView.swift in Sources */,
 				C3870BB822AEAAF900EC3FEF /* UIImage+Color.swift in Sources */,
+				C3F5D70122B04FDC00C25132 /* PlayerView.swift in Sources */,
 				C3C2441C22AE86820021050F /* ImagesLoader.swift in Sources */,
 				C3D56D0222AE7C7000B0A948 /* PodcastHeaderView.swift in Sources */,
 				C307F2FC22AC18DA001579EA /* PodcastRow.swift in Sources */,

@@ -11,6 +11,7 @@ import SwiftUI
 struct PodcastsView : View {
     
     @ObjectBinding var podcastViewModel: PodcastsViewModel
+    //@EnvironmentObject var player: Player
     
     init(podcastViewModel: PodcastsViewModel = PodcastsViewModel()) {
         self.podcastViewModel = podcastViewModel

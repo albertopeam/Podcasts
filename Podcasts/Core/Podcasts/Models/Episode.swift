@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Episode: Codable {
+struct Episode: Equatable {
     let id: String
     let title: String
     let description: String

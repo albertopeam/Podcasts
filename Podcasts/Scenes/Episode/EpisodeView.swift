@@ -13,7 +13,13 @@ struct EpisodeView : View {
     let episode: Episode
     
     var body: some View {
-        Text(episode.title).font(.headline).color(.red).navigationBarTitle(Text(episode.title))
+        VStack {
+            Text(episode.title)
+                .font(.headline)
+            Text(episode.description)
+                .font(.body)
+            PlayerView(episodes: [episode])
+        }.navigationBarTitle(Text(episode.title))
     }
 }
 

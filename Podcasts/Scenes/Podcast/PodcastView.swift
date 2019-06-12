@@ -6,15 +6,17 @@
 //  Copyright © 2019 com.github.albertopeam. All rights reserved.
 //
 
+//TODO: como gestionar esta inyeccion????, con un var tal vez????
 import SwiftUI
 
 struct PodcastView : View {
     
+    //@EnvironmentObject var player: Player
     @ObjectBinding var podcastViewModel: PodcastViewModel
     @ObjectBinding var imageLoader: ImageLoader
     
-    //TODO: como gestionar esta inyeccion????, con un var tal vez????
-    init(podcast: Podcast, imageLoader: ImageLoader = ImageLoader()) {
+    init(podcast: Podcast,
+         imageLoader: ImageLoader = ImageLoader()) {
         self.podcastViewModel = PodcastViewModel(podcast: podcast)
         self.imageLoader = imageLoader
     }
@@ -25,6 +27,11 @@ struct PodcastView : View {
             if podcastViewModel.episodes.isEmpty {
                 Spinner()
             } else {
+//                Button.init(action: {
+//                    self.player.setup(for: self.podcastViewModel.episodes)
+//                }, label: {
+//                    Text("Add to player")
+//                })
                 ForEach(podcastViewModel.episodes.identified(by: \.id)) { episode in
                     NavigationButton(destination: EpisodeView(episode: episode)) {
                         EpisodeRow(episode: episode)

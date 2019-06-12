@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Podcast {
+struct Podcast: Equatable {
     let id: String
     let title: String
     let image: URL?
