@@ -16,6 +16,7 @@ class Player: BindableObject {
     
     enum State {
         case empty
+        case idle(episodes: [Episode])
         case playing(episode: Episode, progress: Float)
         case paused(episode: Episode, progress: Float)
         case finish(episodes: [Episode])
@@ -27,7 +28,7 @@ class Player: BindableObject {
             didChange.send(state)
         }
     }
-    private var current: Episode?
+    var current: Episode?
     private var episodes: [Episode] = []
     private let avPlayer: AVPlayer
     private let notificationCenter: NotificationCenter
@@ -61,12 +62,16 @@ class Player: BindableObject {
             if !isPlayingNow() || episodes != newEpisodes {
                 self.episodes = newEpisodes
                 current = first
-                state = .playing(episode: first, progress: 0)
                 avPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
+                state = .idle(episodes: newEpisodes)
                 return
             }
         }
         state = .empty
+    }
+    
+    var hasEpisodes: Bool {
+        return !episodes.isEmpty
     }
     
     func play() {
@@ -113,7 +118,7 @@ class Player: BindableObject {
     
     @objc private func didUpdatedPlayer(time: CMTime) {
         switch state {
-        case .empty, .paused, .finish:
+        case .empty, .paused, .finish, .idle:
             return
         case .playing:
             break

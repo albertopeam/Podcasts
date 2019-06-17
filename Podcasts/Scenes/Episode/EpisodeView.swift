@@ -18,7 +18,7 @@ struct EpisodeView : View {
                 .font(.headline)
             Text(episode.description)
                 .font(.body)
-            PlayerView(episodes: [episode])
+            PlayerView()
         }.navigationBarTitle(Text(episode.title))
     }
 }

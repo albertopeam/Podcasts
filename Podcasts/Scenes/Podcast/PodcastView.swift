@@ -6,40 +6,49 @@
 //  Copyright © 2019 com.github.albertopeam. All rights reserved.
 //
 
-//TODO: como gestionar esta inyeccion????, con un var tal vez????
+//TODO: como gestionar esta inyeccion: `PodcastViewModel` ????, con un var tal vez????
 import SwiftUI
 
 struct PodcastView : View {
     
-    //@EnvironmentObject var player: Player
     @ObjectBinding var podcastViewModel: PodcastViewModel
     @ObjectBinding var imageLoader: ImageLoader
+    //@ObjectBinding var player: Player
+    @EnvironmentObject var player: Player
     
     init(podcast: Podcast,
          imageLoader: ImageLoader = ImageLoader()) {
+      //   player: Player = Player()) {
         self.podcastViewModel = PodcastViewModel(podcast: podcast)
         self.imageLoader = imageLoader
+        //self.player = player
     }
     
     var body: some View {
-        List {
-            PodcastHeaderView(podcast: podcastViewModel.podcast, imageLoader: imageLoader)
-            if podcastViewModel.episodes.isEmpty {
-                Spinner()
-            } else {
-//                Button.init(action: {
-//                    self.player.setup(for: self.podcastViewModel.episodes)
-//                }, label: {
-//                    Text("Add to player")
-//                })
-                ForEach(podcastViewModel.episodes.identified(by: \.id)) { episode in
-                    NavigationButton(destination: EpisodeView(episode: episode)) {
-                        EpisodeRow(episode: episode)
+        VStack {
+            List {
+                PodcastHeaderView(podcast: podcastViewModel.podcast, imageLoader: imageLoader)
+                if podcastViewModel.episodes.isEmpty {
+                    Spinner()
+                } else {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            self.player.setup(for: self.podcastViewModel.episodes)
+                        }, label: {
+                            Text("Prepare to play")
+                        }).foregroundColor(.green)
+                        Spacer()
+                    }
+                    ForEach(podcastViewModel.episodes.identified(by: \.id)) { episode in
+                        NavigationButton(destination: EpisodeView(episode: episode)) {
+                            EpisodeRow(episode: episode)
+                        }
                     }
                 }
             }
-            }
-            .navigationBarTitle(Text(podcastViewModel.podcast.title))
+            PlayerView()
+            }.navigationBarTitle(Text(podcastViewModel.podcast.title))
             .onAppear(perform: {
                 self.podcastViewModel.loadEpisodes()
             })

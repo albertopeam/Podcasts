@@ -13,47 +13,53 @@ struct PlayerView : View {
     
     //TODO: @EnvironmentObject ??? y dejar que se autoinyecte???
     //TODO: only injecting one Episode... use all to play...
+    //TODO: only one player!!!! shared
     @ObjectBinding var player: Player
-    let episodes: [Episode]
     
-    init(episodes: [Episode], player: Player = Player()) {
-        self.episodes = episodes
+    init(player: Player = Player()) {
         self.player = player
     }
     
     var body: some View {
-        HStack {
-            Button(action: {
-                switch self.player.state {
-                case .empty:
-                    self.player.setup(for: self.episodes)
-                    self.player.play()
-                case .playing(let episode, let progress):
-                    self.player.pause()
-                case .paused(let episode, let progress):
-                    self.player.play()
-                case .finish(let episodes):
-                    break
+        return HStack {
+            if player.hasEpisodes {
+                Button(action: {
+                    switch self.player.state {
+                    case .empty, .idle:
+                        break
+                    case .playing(let episode, let progress):
+                        self.player.pause()
+                    case .paused(let episode, let progress):
+                        self.player.play()
+                    case .finish(let episodes):
+                        break
+                    }
+                }) { () -> Image in
+                    switch self.player.state {
+                    case .empty, .paused, .idle:
+                        return Image(systemName: "play")//.imageScale(.large)
+                    case .playing(let episode, let progress):
+                        return Image(systemName: "pause")//.imageScale(.large)
+                    case .finish(let episodes):
+                        return Image(systemName: "pause")//.imageScale(.large)
+                    }
                 }
-            }) { () -> Image in
-                switch self.player.state {
-                case .empty, .paused:
-                    return Image(systemName: "play")//.imageScale(.large)
-                case .playing(let episode, let progress):
-                    return Image(systemName: "pause")//.imageScale(.large)
-                case .finish(let episodes):
-                    return Image(systemName: "pause")//.imageScale(.large)
-                }
+                Text(player.current?.title)
             }
         }
     }
     
 }
 
+extension Text {
+    init(_ string: String?) {
+        self.init(verbatim: string ?? "")
+    }
+}
 #if DEBUG
 struct PlayerView_Previews : PreviewProvider {
     static var previews: some View {
-        PlayerView(episodes: episodes)
+        PlayerView()
     }
 }
 #endif

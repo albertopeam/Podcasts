@@ -11,7 +11,6 @@ import SwiftUI
 struct HomeView : View {
     
     @State private var selected = 0
-    //@EnvironmentObject var player: Player
     
     var body: some View {
         TabbedView(selection: $selected) {
