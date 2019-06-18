@@ -7,22 +7,22 @@
 //
 
 //TODO: crear un wrapper de Image que recarge solo ese contenedor..
-//TODO: hacer lo de URLSession, refresh
 //crear repo y subir. meter en algun lado la key listen-api
 //TODO: hacer player
-//TODO: loading... spinner
+//TODO: migrate to states
 //enum PodcastState {
 //    case loading
 //    case data(podcast: [Podcast])
 //    case error(error: Error)
 //}
-//private(set) var state = PodcastState.loading {
-//    didSet { didChange.send(self) }
-//}
+//TODO: pagination
+//TODO: environment object -> Player
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let appContainer: Container = Container()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
 
 }
 

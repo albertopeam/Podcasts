@@ -11,40 +11,51 @@ import Combine
 
 struct PlayerView : View {
     
-    //TODO: @EnvironmentObject ??? y dejar que se autoinyecte???
-    //TODO: only injecting one Episode... use all to play...
-    //TODO: only one player!!!! shared
     @ObjectBinding var player: Player
     
-    init(player: Player = Player()) {
+    init(player: Player = Container.player) {
         self.player = player
     }
     
     var body: some View {
-        return HStack {
+        return VStack {
             if player.hasEpisodes {
-                Button(action: {
-                    switch self.player.state {
-                    case .empty, .idle:
-                        break
-                    case .playing(let episode, let progress):
-                        self.player.pause()
-                    case .paused(let episode, let progress):
-                        self.player.play()
-                    case .finish(let episodes):
-                        break
-                    }
-                }) { () -> Image in
-                    switch self.player.state {
-                    case .empty, .paused, .idle:
-                        return Image(systemName: "play")//.imageScale(.large)
-                    case .playing(let episode, let progress):
-                        return Image(systemName: "pause")//.imageScale(.large)
-                    case .finish(let episodes):
-                        return Image(systemName: "pause")//.imageScale(.large)
-                    }
-                }
-                Text(player.current?.title)
+                ProgressView(progress: player.progress)
+                HStack {
+                    Button(action: {
+                        self.player.previous()
+                    }) {
+                        return Image(systemName: "backward.end")
+                    }.imageScale(.large)
+                    Button(action: {
+                        switch self.player.state {
+                        case .empty, .finish:
+                            break
+                        case .idle:
+                            self.player.play()
+                        case .playing:
+                            self.player.pause()
+                        case .paused:
+                            self.player.play()
+                        }
+                    }) { () -> Image in
+                        switch self.player.state {
+                        case .empty, .paused, .idle:
+                            return Image(systemName: "play")
+                        case .playing:
+                            return Image(systemName: "pause")
+                        case .finish:
+                            return Image(systemName: "pause")
+                        }
+                    }.imageScale(.large)
+                    Button(action: {
+                        self.player.next()
+                    }) {
+                        return Image(systemName: "forward.end")
+                    }.imageScale(.large)
+                    Text(player.current?.title)
+                    Spacer()
+                }.padding()
             }
         }
     }

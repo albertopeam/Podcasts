@@ -61,13 +61,12 @@ class Player: BindableObject {
         if let first = newEpisodes.first, let url = first.audio {
             if !isPlayingNow() || episodes != newEpisodes {
                 self.episodes = newEpisodes
-                current = first
+                current = first                
                 avPlayer.replaceCurrentItem(with: AVPlayerItem(url: url))
                 state = .idle(episodes: newEpisodes)
                 return
             }
         }
-        state = .empty
     }
     
     var hasEpisodes: Bool {
@@ -85,23 +84,29 @@ class Player: BindableObject {
         pauseNow()
     }
     
-//    lazy var previous: Action<Void, Void> = Action {
-//        guard let previousTrack = self.previousTrack() else {
-//            self.current = nil
-//            return Observable.empty()
-//        }
-//        self.playNow(track: previousTrack)
-//        return Observable.empty()
-//    }
-//
-//    lazy var next: Action<Void, Void> = Action {
-//        guard let nextTrack = self.nextTrack() else {
-//            self.current = nil
-//            return Observable.empty()
-//        }
-//        self.playNow(track: nextTrack)
-//        return Observable.empty()
-//    }
+    func previous() {
+        guard let previousEpisode = previousEpisode() else {
+            self.current = nil
+            return
+        }
+        playNow(next: previousEpisode)
+    }
+    
+    func next() {
+        guard let nextEpisode = nextEpisode() else {
+            self.current = nil
+            return
+        }
+        self.playNow(next: nextEpisode)
+    }
+    
+    var progress: Float {
+        guard let playerDuration = avPlayer.currentItem?.duration else { return 0 }
+        let totalTime = Float(CMTimeGetSeconds(playerDuration))
+        guard !totalTime.isNaN else { return 0 }
+        let currentTime = Float(CMTimeGetSeconds(avPlayer.currentTime()))
+        return currentTime / totalTime
+    }
     
     // MARK: NotificationCenter
     
@@ -129,13 +134,13 @@ class Player: BindableObject {
     
     // MARK: Private
     
-//    private func previousTrack() -> Track? {
-//        guard let current = self.current else { return nil }
-//        guard let curIndex = tracks?.firstIndex(of: current) else { return nil }
-//        let target = curIndex - 1
-//        guard target >= 0 else { return self.current }
-//        return tracks?[target]
-//    }
+    private func previousEpisode() -> Episode? {
+        guard let current = self.current else { return nil }
+        guard let curIndex = episodes.firstIndex(of: current) else { return nil }
+        let target = curIndex - 1
+        guard target >= 0 else { return self.current }
+        return episodes[target]
+    }
 
     private func nextEpisode() -> Episode? {
         guard let current = self.current else { return nil }
@@ -155,13 +160,6 @@ class Player: BindableObject {
         notificationCenter.addObserver(self, selector: #selector(self.didArriveInterruption), name: AVAudioSession.interruptionNotification, object: nil)
         notifySystemPlayer(episode: next)
         state = .playing(episode: next, progress: progress)
-    }
-    
-    private var progress: Float {
-        guard let playerDuration = avPlayer.currentItem?.duration else { return 0 }
-        let totalTime = Float(CMTimeGetSeconds(playerDuration))
-        let currentTime = Float(CMTimeGetSeconds(avPlayer.currentTime()))
-        return currentTime / totalTime
     }
     
     private func pauseNow() {

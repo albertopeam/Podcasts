@@ -13,15 +13,14 @@ struct PodcastView : View {
     
     @ObjectBinding var podcastViewModel: PodcastViewModel
     @ObjectBinding var imageLoader: ImageLoader
-    //@ObjectBinding var player: Player
-    @EnvironmentObject var player: Player
+    @ObjectBinding var player: Player
     
     init(podcast: Podcast,
-         imageLoader: ImageLoader = ImageLoader()) {
-      //   player: Player = Player()) {
+         imageLoader: ImageLoader = ImageLoader(),
+         player: Player = Container.player) {
         self.podcastViewModel = PodcastViewModel(podcast: podcast)
         self.imageLoader = imageLoader
-        //self.player = player
+        self.player = player
     }
     
     var body: some View {
