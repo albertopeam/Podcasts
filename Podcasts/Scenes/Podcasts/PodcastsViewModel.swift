@@ -15,25 +15,25 @@ class PodcastsViewModel: BindableObject {
     var didChange = PassthroughSubject<PodcastsViewModel, Never>()
     private let podcastRepository: PodcastRepository
     private var podcastsCancelable: Cancellable?
-    private(set) var podcasts = [Podcast]() {
-        didSet { didChange.send(self) }
-    }
+    private var page: Int
+    private(set) var podcasts = [Podcast]() { didSet { didChange.send(self) } }
     
-    init(podcastRepository: PodcastRepository = PodcastRepository()) {
+    init(podcastRepository: PodcastRepository = PodcastRepository(),
+         page: Int = 0) {
         self.podcastRepository = podcastRepository
+        self.page = page
     }
     
     deinit {
-        //TODO: cancelable???
         podcastsCancelable?.cancel()
     }
     
     func bestPodcasts() {
         podcastsCancelable = podcastRepository
-            .bestPodcasts
-            .map({ (podcasts) -> [Podcast] in return podcasts.sorted(by: { $0.title < $1.title }) })
+            .bestPodcasts(page: page)
             .replaceError(with: [])
-            .assign(to: \.podcasts, on: self)
+            .sink(receiveValue: { self.podcasts.append(contentsOf: $0) })
+        page += 1
     }
     
 }

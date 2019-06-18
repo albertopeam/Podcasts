@@ -19,16 +19,20 @@ struct PodcastsView : View {
     var body: some View {
         NavigationView() {
             if podcastViewModel.podcasts.isEmpty {
-                Spinner()
+                Spinner().navigationBarTitle(Text("Best Podcasts"), displayMode: NavigationBarItem.TitleDisplayMode.inline)
             } else {
-                List(podcastViewModel.podcasts.identified(by: \.id)) { podcast in
-                    NavigationButton(destination: PodcastView(podcast: podcast), label: {
-                        PodcastRow(podcast: podcast)
+                List {
+                    ForEach(podcastViewModel.podcasts.identified(by: \.id)) { podcast in
+                        NavigationButton(destination: PodcastView(podcast: podcast), label: {
+                            PodcastRow(podcast: podcast)
                         })
                     }
-                    .navigationBarTitle(Text("Best Podcasts"), displayMode: NavigationBarItem.TitleDisplayMode.inline)
-                }
+                    Rectangle().frame(height: 0).onAppear {
+                        self.podcastViewModel.bestPodcasts()
+                    }
+                }.navigationBarTitle(Text("Best Podcasts"), displayMode: NavigationBarItem.TitleDisplayMode.inline)
                 PlayerView()
+            }
             }.onAppear(perform: {
                 self.podcastViewModel.bestPodcasts()
             })

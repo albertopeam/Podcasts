@@ -29,7 +29,6 @@ class PodcastViewModel: BindableObject {
     }
     
     deinit {
-        //TODO: cancelable???
         episodesCancelable?.cancel()
     }
 

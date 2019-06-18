@@ -17,6 +17,8 @@
 //}
 //TODO: pagination
 //TODO: environment object -> Player
+//TODO: paginación, sino hay más páginas????
+//TODO: cancelable???
 import UIKit
 
 @UIApplicationMain

@@ -31,10 +31,10 @@ class PodcastRepository {
         return decoder
     }
     
-    var bestPodcasts: AnyPublisher<[Podcast], Error> {
+    func bestPodcasts(page: Int) -> AnyPublisher<[Podcast], Error> {
         var urlComponents = components
         urlComponents.path = "/api/v2/best_podcasts"
-        urlComponents.queryItems = [URLQueryItem(name: "page", value: "0"),
+        urlComponents.queryItems = [URLQueryItem(name: "page", value: "\(page)"),
                                     URLQueryItem(name: "region", value: "us"),
                                     URLQueryItem(name: "safe_mode", value: "0")]
         var request = URLRequest(url: urlComponents.url!)
