@@ -12,11 +12,12 @@ import SwiftUI
 
 class PodcastRepository {
     
-    private let apiKey: String = "451c455ef9164578b7c627fd99e1ee9b"
+    private let apiKey: String
     private let endpoint: String = "https://listen-api.listennotes.com"
     private let urlSession: URLSession
     
-    init(urlSession: URLSession = URLSession.shared) {
+    init(apiKey: String = Constants.apiKey, urlSession: URLSession = URLSession.shared) {
+        self.apiKey = apiKey
         self.urlSession = urlSession
     }
     
