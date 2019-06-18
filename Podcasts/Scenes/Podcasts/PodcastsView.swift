@@ -11,7 +11,6 @@ import SwiftUI
 struct PodcastsView : View {
     
     @ObjectBinding var podcastViewModel: PodcastsViewModel
-    //@EnvironmentObject var player: Player
     
     init(podcastViewModel: PodcastsViewModel = PodcastsViewModel()) {
         self.podcastViewModel = podcastViewModel
@@ -29,6 +28,7 @@ struct PodcastsView : View {
                     }
                     .navigationBarTitle(Text("Best Podcasts"), displayMode: NavigationBarItem.TitleDisplayMode.inline)
                 }
+                PlayerView()
             }.onAppear(perform: {
                 self.podcastViewModel.bestPodcasts()
             })
