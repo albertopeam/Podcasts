@@ -17,10 +17,10 @@ struct HomeView : View {
             PodcastsView()
                 .tabItemLabel(Text("Podcasts"))
                 .tag(0)
-            Text("...")
-                .font(.title)
-                .tabItemLabel(Text("Search"))
-                .tag(1)
+//            Text("...")
+//                .font(.title)
+//                .tabItemLabel(Text("Search"))
+//                .tag(1)
         }
     }
 }

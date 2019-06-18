@@ -6,19 +6,6 @@
 //  Copyright © 2019 com.github.albertopeam. All rights reserved.
 //
 
-//TODO: crear un wrapper de Image que recarge solo ese contenedor..
-//crear repo y subir. meter en algun lado la key listen-api
-//TODO: hacer player
-//TODO: migrate to states
-//enum PodcastState {
-//    case loading
-//    case data(podcast: [Podcast])
-//    case error(error: Error)
-//}
-//TODO: pagination
-//TODO: environment object -> Player
-//TODO: paginación, sino hay más páginas????
-//TODO: cancelable???
 import UIKit
 
 @UIApplicationMain
