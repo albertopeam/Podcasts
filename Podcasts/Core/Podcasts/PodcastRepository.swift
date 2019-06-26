@@ -40,7 +40,8 @@ class PodcastRepository {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(apiKey, forHTTPHeaderField: "X-ListenAPI-Key")
-        return urlSession.send(request: request)
+        return urlSession.dataTaskPublisher(for: request)
+            .map({ (data, response) -> Data in return data })
             .decode(type: CodableBestPodcasts.self, decoder: decoder)
             .map { $0.podcasts }
             .map({ $0.map({ Podcast(id: $0.id,
@@ -67,7 +68,8 @@ class PodcastRepository {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(apiKey, forHTTPHeaderField: "X-ListenAPI-Key")
-        return urlSession.send(request: request)
+        return urlSession.dataTaskPublisher(for: request)
+            .map({ (data, response) -> Data in return data })
             .decode(type: CodableEpisodes.self, decoder: decoder)
             .map { $0.episodes }
             .map({ $0.map({ Episode(id: $0.id,

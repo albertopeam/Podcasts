@@ -16,6 +16,7 @@ class PodcastsViewModel: BindableObject {
     private let podcastRepository: PodcastRepository
     private var podcastsCancelable: Cancellable?
     private var page: Int
+    //TODO: enum state
     private(set) var podcasts = [Podcast]() { didSet { didChange.send(self) } }
     
     init(podcastRepository: PodcastRepository = PodcastRepository(),
@@ -32,6 +33,7 @@ class PodcastsViewModel: BindableObject {
         podcastsCancelable = podcastRepository
             .bestPodcasts(page: page)
             .replaceError(with: [])
+            .receive(on: RunLoop.main)
             .sink(receiveValue: { self.podcasts.append(contentsOf: $0) })
         page += 1
     }

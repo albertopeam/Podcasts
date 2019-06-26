@@ -34,6 +34,7 @@ class PodcastViewModel: BindableObject {
 
     func loadEpisodes() {
         episodesCancelable = podcastRepository.episodes(for: podcast)
+            .receive(on: RunLoop.main)
             .replaceError(with: [])
             .assign(to: \.episodes, on: self)
     }

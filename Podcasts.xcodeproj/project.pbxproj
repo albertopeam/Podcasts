@@ -38,7 +38,6 @@
 		C3F51E7A22AF8A8C00279F4C /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F51E7922AF8A8C00279F4C /* Spinner.swift */; };
 		C3F5D70122B04FDC00C25132 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F5D70022B04FDC00C25132 /* PlayerView.swift */; };
 		C3FE2D0122AAACF300B814BE /* AnySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0022AAACF300B814BE /* AnySubscription.swift */; };
-		C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */; };
 		C3FE2D0522AAC40600B814BE /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */; };
 		C3FE2D0B22AAC6B500B814BE /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE2D0A22AAC6B500B814BE /* Podcast.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +88,6 @@
 		C3F51E7922AF8A8C00279F4C /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		C3F5D70022B04FDC00C25132 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C3FE2D0022AAACF300B814BE /* AnySubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySubscription.swift; sourceTree = "<group>"; };
-		C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		C3FE2D0422AAC40600B814BE /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
 		C3FE2D0A22AAC6B500B814BE /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,7 +261,6 @@
 		C3FE2D0622AAC60900B814BE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C3FE2D0222AAAD1800B814BE /* URLSession+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -446,7 +443,6 @@
 				C3E1087822AFE15100F05D61 /* Date+Formatter.swift in Sources */,
 				C3FE2D0B22AAC6B500B814BE /* Podcast.swift in Sources */,
 				C307F30522ACFF4B001579EA /* Episode.swift in Sources */,
-				C3FE2D0322AAAD1800B814BE /* URLSession+Extensions.swift in Sources */,
 				C307F30D22AD42CF001579EA /* PodcastViewModel.swift in Sources */,
 				C3968F2E22AA4A33004CB76C /* PodcastsViewModel.swift in Sources */,
 				C307F30F22AD5E89001579EA /* EpisodeRow.swift in Sources */,
